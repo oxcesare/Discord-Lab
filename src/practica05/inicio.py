@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 # importar la classe tareas_agente.py
 from src.practica04.tareas_agente import agregar_tarea, listar_tareas, eliminar_tarea
 from src.practica01.gestor_comandos import buscar_en_diccionario, validar_variable
+from src.practica02.procesador_comandos import mostrar_ayuda
 
 tareas = []  # Nuestra "base de datos" en memoria (lista)
 
@@ -18,6 +19,7 @@ def mostrar_bienvenida():
         "📜 Escriba !list para listar las tareas:\n"
         "📜 Escriba !delete <tarea> para eliminar una tarea:\n"
         "📜 Escriba !buscar <termino> para buscar un término en el diccionario:\n"
+        "📜 Escriba !ayuda para mostrar esta lista de comandos:\n"
         "📜 Escriba !exit para salir del Agente:"
     )
 
@@ -44,6 +46,9 @@ def main(entrada):
         
         elif comando == "list":
             return listar_tareas(tareas)
+        
+        elif comando == "help" or comando == "ayuda":
+            return mostrar_bienvenida()
         
         elif comando == "delete":
             return eliminar_tarea(tareas, argumento)
