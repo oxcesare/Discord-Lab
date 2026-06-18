@@ -10,9 +10,8 @@ tareas = []  # Nuestra "base de datos" en memoria (lista)
 def mostrar_bienvenida():
     """Retorna la lista de comandos disponibles."""
     return (
-        "📜 Bot de Gestión de Tareas (Programacion Estructurada):\n"
-        "📜 Primeros pasos Agente Discord UX:\n"  
-        "📜 Escriba !analizar <comando> para analizar un comando:\n"        
+        "📜 Bot de Gestor (Programacion Estructurada):\n"
+        "📜 Escriba !buscar <termino> para buscar en el diccionario:\n"        
         "📜 Escriba !exit para salir del Agente:"
     )
 
@@ -34,7 +33,7 @@ def main(entrada):
             print("Saliendo del gestor...")
             return "Saliendo del gestor..."
 
-        elif comando == "definir":
+        elif comando == "buscar":
             return buscar_en_diccionario(argumento)
         else:
             print(f" Error: Comando '!{comando}' no reconocido.")
