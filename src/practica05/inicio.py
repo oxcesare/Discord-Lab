@@ -13,7 +13,7 @@ tareas = []  # Nuestra "base de datos" en memoria (lista)
 def mostrar_bienvenida():
     """Retorna la lista de comandos disponibles."""
     return (
-        "📜 Bot de Gestión de Tareas (Programacion Estructurada):\n"
+        "📜 Agente tutor Python (Programacion Estructurada):\n"
         "📜 Primeros pasos Agente Discord UX:\n"  
         "📜 Escriba !add <tarea> para agregar una tarea:\n"        
         "📜 Escriba !list para listar las tareas:\n"

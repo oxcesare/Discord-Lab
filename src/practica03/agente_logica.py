@@ -1,8 +1,29 @@
 import datetime
 
-# --- UNIDAD 5: ARREGLOS (Vectores) ---
 # Variable global para almacenar el historial de la sesión
 historial_comandos = []
+
+
+def registrar_comando(entrada_usuario):
+    """Guarda la entrada del usuario en un historial acotado de sesión."""
+    mensaje = entrada_usuario.strip()
+    if not mensaje:
+        return
+
+    if len(historial_comandos) >= 5:
+        historial_comandos.pop(0)
+    historial_comandos.append(mensaje)
+
+
+def obtener_historial_comandos():
+    """Devuelve las últimas interacciones registradas del usuario."""
+    if not historial_comandos:
+        return "Aún no hay comandos o mensajes registrados."
+
+    res = "Últimas interacciones:\n"
+    for i, cmd in enumerate(historial_comandos, 1):
+        res += f"{i}. {cmd}\n"
+    return res.rstrip()
 
 def ejecutar_suma(argumento):
     """
@@ -63,11 +84,8 @@ def analizar_comando(entrada_usuario):
         partes = mensaje.split(" ", 1)
         comando = partes[0]
         argumento = partes[1] if len(partes) > 1 else None
-        
-        # Registrar en el historial (Máximo 5 elementos)
-        if len(historial_comandos) >= 5:
-            historial_comandos.pop(0)
-        historial_comandos.append(comando)
+
+        registrar_comando(comando)
 
         # --- UNIDAD 3: ESTRUCTURAS DE SELECCIÓN ---
         if comando == "!definir":
@@ -81,11 +99,7 @@ def analizar_comando(entrada_usuario):
             return f" Hora actual: {ahora}"
         
         elif comando == "!historial":
-            # UNIDAD 3.2: Estructuras de repetición
-            res = "Últimos comandos:\n"
-            for i, cmd in enumerate(historial_comandos, 1):
-                res += f"{i}. {cmd}\n"
-            return res
+            return obtener_historial_comandos()
 
         elif comando == "!sumar":
             # UNIDAD 4.3: Parámetros de entrada
