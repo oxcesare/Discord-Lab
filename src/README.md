@@ -182,6 +182,7 @@ Discord/
 		└── toolkit.py
 ```
 
+
 ## Resumen
 
 Discord-Lab es un tutor basico de Python para Discord. Su arquitectura separa claramente la recepcion de mensajes, la clasificacion de intenciones, el registro de herramientas y el contenido pedagogico. Esto hace que el proyecto sea sencillo de entender, mantener y ampliar con nuevos temas educativos.
